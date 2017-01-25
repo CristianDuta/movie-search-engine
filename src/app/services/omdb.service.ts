@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class OmdbService {
-    private omdbRequestUrl: string = "http://www.omdbapi.com/?v=1&type=movie&r=json";
+    private omdbRequestUrl: string = "https://www.omdbapi.com/?v=1&type=movie&r=json";
 
     /**
      * OmdbService constructor

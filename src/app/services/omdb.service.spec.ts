@@ -33,7 +33,7 @@ describe('OmdbService', () => {
         };
 
         mockBackend.connections.subscribe((connection: MockConnection) => {
-            expect(connection.request.url).toEqual("http://www.omdbapi.com/?v=1&type=movie&r=json&s=testString&page=1");
+            expect(connection.request.url).toEqual("https://www.omdbapi.com/?v=1&type=movie&r=json&s=testString&page=1");
             expect(connection.request.method).toEqual(RequestMethod.Get);
             let options = new ResponseOptions({
                 body: JSON.stringify(jsonResponse)
@@ -74,7 +74,7 @@ describe('OmdbService', () => {
         };
 
         mockBackend.connections.subscribe((connection: MockConnection) => {
-            expect(connection.request.url).toEqual("http://www.omdbapi.com/?v=1&type=movie&r=json&i=tt2543164&plot=short");
+            expect(connection.request.url).toEqual("https://www.omdbapi.com/?v=1&type=movie&r=json&i=tt2543164&plot=short");
             expect(connection.request.method).toEqual(RequestMethod.Get);
             let options = new ResponseOptions({
                 body: JSON.stringify(jsonResponse)
