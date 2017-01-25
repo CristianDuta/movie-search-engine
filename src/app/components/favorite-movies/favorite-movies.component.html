@@ -1,0 +1,29 @@
+<div class="row">
+    <h3>
+        Favorite movie list:
+        <button class="btn btn-success" *ngIf="!displayFavoriteMovies" (click)="toggleDisplayFavoriteMovies();">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            Show
+        </button>
+        <button class="btn btn-success" *ngIf="displayFavoriteMovies" (click)="toggleDisplayFavoriteMovies();">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            Hide
+        </button>
+    </h3>
+    <div class="col-md-12" *ngIf="displayFavoriteMovies">
+        <div class="favorite-movies">
+            <h4 *ngIf="favoriteMovieList.length <= 0">List is empty</h4>
+            <div class="favorite-movie" *ngFor="let favoriteMovie of favoriteMovieList">
+                <a [routerLink]="['/movie', favoriteMovie.imdbID]">
+                    <img class="img-thumbnail" src="{{favoriteMovie.Poster}}" *ngIf="favoriteMovie.Poster !== 'N/A'"/>
+                    <img class="img-thumbnail" src="assets/poster-na.png" *ngIf="favoriteMovie.Poster === 'N/A'"/>
+                </a>
+                <h5><a [routerLink]="['/movie', favoriteMovie.imdbID]">
+                    {{favoriteMovie.Title}} ({{favoriteMovie.Year}})
+                </a></h5>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<br />

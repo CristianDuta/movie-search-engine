@@ -1,0 +1,30 @@
+.favorite-movies {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 260px;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+
+.favorite-movies:hover {
+    overflow-x: auto;
+}
+
+.favorite-movies .favorite-movie {
+    display: inline-block;
+    float: none;
+    vertical-align:top;
+    padding: 5px;
+    width: 170px;
+}
+
+.favorite-movies .favorite-movie h5 {
+    white-space: normal;
+    text-align: center;
+}
+
+.favorite-movies .favorite-movie img {
+    display: block;
+    max-width: 120px;
+    margin: 0 auto;
+}

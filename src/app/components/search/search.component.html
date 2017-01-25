@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div id="custom-search-input">
+            <div class="input-group col-md-12 search-box">
+                <input [(ngModel)]="tempSearchString" (keyup.enter)="search();"
+                       type="text" class="form-control input-lg" title="movie title" placeholder="Movie title"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button" (click)="search();">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<app-favorite-movies
+    [searchResults]="searchResults"
+    [refreshFavoriteMovieList]="refreshFavoriteMovieList">
+</app-favorite-movies>
+
+<div class="row" *ngIf="searchIsInProgress">
+    <div class="col-md-12">
+        <div class="loading-container">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="searchString">
+    <div class="col-md-12">
+        <h2>Search Results</h2>
+        <h4>
+            <span class="text-danger">{{totalResults}}</span>
+            results were found for the search for
+            <span class="text-danger">'{{searchString}}'</span>
+        </h4>
+    </div>
+
+    <app-search-results
+            [searchResults]="searchResults"
+            [totalResults]="totalResults"
+            [pageNumber]="activePageNumber"
+            (onPageChange)="navigateToPage($event)"
+            (onToggleFavoriteMovie)="refreshFavoriteMovieList = refreshFavoriteMovieList + 1;"
+    ></app-search-results>
+
+</div>

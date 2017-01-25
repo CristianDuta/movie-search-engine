@@ -1,0 +1,79 @@
+.fa {
+    color: #248DC1;
+}
+
+h5 {
+    margin: 5px;
+}
+
+.title .year {
+    font-size: 25px;
+}
+
+.title h1 {
+    margin-top: 0;
+}
+
+.title a.favorite-icon {
+    text-decoration: none;
+}
+
+.title a.favorite-icon:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
+.title a.favorite-icon .fa {
+    color: #F50F50;
+}
+
+.poster {
+    padding-top: 10px;
+}
+
+.imdb-poster {
+    padding-top: 20px;
+}
+
+.imdb-rating-container {
+    max-width: 55px;
+    word-wrap: break-word;
+    display: block;
+    line-height: 10px;
+    padding-left: 5px;
+}
+
+.imdb-rating-container .imdb-rating {
+    font-size: 18px;
+}
+
+.imdb-rating-container .imdb-rating-out-of {
+    font-size: 9px;
+}
+
+.imdb-rating-container .imdb-rating-votes {
+    font-size: 10px;
+}
+
+.description {
+    padding: 10px 0;
+}
+
+.metascore {
+    text-decoration: none;
+}
+
+.metascore .label-success {
+    background-color: #66CC33;
+}
+
+.metascore-label {
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.awards {
+    background-color: #EFE3A4;
+    margin-top: 10px;
+    border: 1px solid #CCC;
+}

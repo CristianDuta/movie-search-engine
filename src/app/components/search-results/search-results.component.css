@@ -1,0 +1,44 @@
+.search-result {
+    margin-top: 25px;
+    min-height: 300px;
+    padding: 0;
+}
+
+.search-result .fa {
+    color: #248DC1;
+}
+
+.search-result .poster {
+    max-width: 180px;
+}
+
+.search-result a.favorite-icon {
+    text-decoration: none;
+}
+
+.search-result .title,
+.search-result .details,
+.search-result .plot {
+    padding: 0;
+}
+
+.search-result .title h3 {
+    margin-top: 0
+}
+
+.search-result a.favorite-icon:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
+.search-result a.favorite-icon h2 {
+    margin: 0;
+}
+
+.search-result a.favorite-icon .fa {
+    color: #F50F50;
+}
+
+.search-results-pagination {
+    text-align: center;
+}

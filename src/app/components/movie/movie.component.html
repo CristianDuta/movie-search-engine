@@ -1,0 +1,75 @@
+<div class="row" *ngIf="movie">
+    <div class="col-md-12 title">
+        <h1>
+            <a href="javascript:void(0);" class="favorite-icon"
+               (click)="favoriteMovieService.toggleMovieInFavorites(movie);">
+                <span title="Add to favorite" *ngIf="!favoriteMovieService.isMovieFavorited(movie);">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </span>
+                <span title="Remove from favorites" *ngIf="favoriteMovieService.isMovieFavorited(movie);">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+            </a>
+            {{movie.Title}} <span class="year">({{movie.Year}})</span>
+        </h1>
+        <h5>
+            <i class="fa fa-users" aria-hidden="true"></i> {{movie.Rated}} |
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {{movie.Runtime}} |
+            <i class="fa fa-tags" aria-hidden="true"></i> {{movie.Genre}} |
+            <i class="fa fa-calendar" aria-hidden="true"></i> {{movie.Released}} |
+            <i class="fa fa-map-marker" aria-hidden="true"></i> {{movie.Country}}
+        </h5>
+    </div>
+    <div class="col-md-3 poster">
+        <img class="img-thumbnail" src="{{movie.Poster}}" *ngIf="movie.Poster !== 'N/A'"/>
+        <img class="img-thumbnail" src="assets/poster-na.png" *ngIf="movie.Poster === 'N/A'"/>
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-12 imdb-poster">
+            <div class="pull-left">
+                <a target="_blank" href="http://www.imdb.com/title/{{movie.imdbID}}">
+                    <img src="http://g-ecx.images-amazon.com/images/G/01/imdb/plugins/rating/images/imdb_46x22.png">
+                </a>
+            </div>
+            <div class="pull-left">
+                <span class="imdb-rating-container" *ngIf="movie.imdbRating !== 'N/A'">
+                    <span class="imdb-rating">{{movie.imdbRating}}</span>
+                    <span class="imdb-rating-out-of">/10</span>
+                    <span class="imdb-rating-votes">{{movie.imdbVotes}}</span>
+                </span>
+            </div>
+            <div class="pull-left" *ngIf="movie.imdbRating !== 'N/A'">
+                <img src="http://g-ecx.images-amazon.com/images/G/01/imdb/plugins/rating/images/imdb_star_22x21.png">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 ">
+            <h5 class="description"> {{movie.Plot}}</h5>
+        </div>
+        <div class="col-md-12">
+            <h5><strong>Director:</strong> {{movie.Director}}</h5>
+        </div>
+        <div class="col-md-12">
+            <h5><strong>Writers:</strong> {{movie.Writer}}</h5>
+        </div>
+        <div class="col-md-12">
+            <h5><strong>Stars:</strong> {{movie.Actors}}</h5>
+        </div>
+        <div class="col-md-12">
+            <h5><strong>Language:</strong> {{movie.Language}}</h5>
+        </div>
+        <div class="col-md-12" *ngIf="movie.Metascore !== 'N/A'">
+            <h2>
+                <a target="_blank" class="metascore" href="http://www.imdb.com/title/{{movie.imdbID}}/criticreviews">
+                    <span class="label label-success">{{movie.Metascore}}</span>
+                </a>
+                <span class="metascore-label">Metascore</span>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-12 awards" *ngIf="movie.Awards !== 'N/A'">
+            <h5>{{movie.Awards}}</h5>
+        </div>
+    </div>
+</div>
+<br/>

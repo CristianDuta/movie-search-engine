@@ -1,0 +1,48 @@
+<div class="col-md-12 search-results-pagination">
+    <ul class="pagination">
+        <li *ngFor="let page of pagination" [ngClass]="{active: page.isActive}">
+            <a (click)="moveToPage(page.pageNumber)" href="javascript:void(0);">{{page.pageNumber}}</a>
+        </li>
+    </ul>
+</div>
+
+<div class="col-sm-12 col-md-6 search-result" *ngFor="let searchResult of searchResults">
+    <div class="col-xs-4 col-sm-4 col-md-4 poster">
+        <a [routerLink]="['/movie', searchResult.imdbID]">
+            <img class="img-thumbnail" src="{{searchResult.Poster}}" *ngIf="searchResult.Poster !== 'N/A'"/>
+            <img class="img-thumbnail" src="assets/poster-na.png" *ngIf="searchResult.Poster === 'N/A'"/>
+        </a>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-8">
+        <div class="col-md-12 title">
+            <a [routerLink]="['/movie', searchResult.imdbID]">
+                <h3>{{searchResult.Title}} ({{searchResult.Year}})</h3>
+            </a>
+        </div>
+        <div class="col-md-12 details">
+            <div class="col-md-12">
+                <i class="fa fa-calendar" aria-hidden="true"></i> {{searchResult.Released}}
+            </div>
+            <div class="col-md-12">
+                <i class="fa fa-clock-o" aria-hidden="true"></i> {{searchResult.Runtime}}
+            </div>
+            <div class="col-md-12">
+                <i class="fa fa-tags" aria-hidden="true"></i> {{searchResult.Genre}}
+            </div>
+        </div>
+        <div class="col-md-12 plot">
+            <h5>{{searchResult.Plot}}</h5>
+            <a href="javascript:void(0);" class="favorite-icon"
+               (click)="toggleMovieInFavorites(searchResult);">
+                <h5 title="Add to favorite" *ngIf="!favoriteMovieService.isMovieFavorited(searchResult);">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    Add to favorites
+                </h5>
+                <h5 title="Favorited!" *ngIf="favoriteMovieService.isMovieFavorited(searchResult);">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    Favorited!
+                </h5>
+            </a>
+        </div>
+    </div>
+</div>
